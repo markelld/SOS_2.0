@@ -1,0 +1,23 @@
+<div class='d-flex justify-content-center'> 
+<div class="card " style="width: 75%;">  
+<div class="card-header" style="color:#FBFBFF; background-color:#0A0908">
+<h3 class="text-center">Forgot your password?</h3>
+</div>  
+<div class="card-body">
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Email" %>
+  </div>
+    <br/>
+  <div class="actions d-flex flex-row justify-content-center">
+    <%= f.submit "Reset Password", class:"btn btn-dark m-2"  %>
+  </div>
+<% end %> 
+<div class="d-flex flex-row justify-content-center">
+  <%= render "devise/shared/links" %>
+</div>
+</div> 
+</div>
+</div>

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container mx-1rem">
+<h1 style="color:#0A0908">Search for Cocktails</h1>  
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :name_cont, placeholder:"Name",class:"mb-2" %> 
+  <%= f.submit name: '', class:"btn btn-dark" %>  
+  <%= f.search_field :ingredients_cont, placeholder:"Ingredients",class:"mb-2" %>
+  <%= f.submit name: '', class:"btn btn-dark" %> 
+<% end %>
+<br/> 
+<% if user_signed_in? %>
+<%= link_to 'New Cocktail', new_cocktail_path, class:"btn btn-dark mb-2" %>
+<% end %>
+<br/> 
+<table class="table table-sm table-hover" style="color:#0A0908" >
+  <thead>
+    <tr>
+      <h1 scope="col">Name</h1> 
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @cocktails.limit(10).each do |cocktail| %>
+    <tr> 
+      <td><%= cocktail.name %></td> 
+      <td><%= link_to 'Show', cocktail, class:"btn btn-primary" %></td>  
+      <% if cocktail.user == current_user %>
+      <td><%= link_to 'Edit', edit_cocktail_path(cocktail), class:"btn btn-success"  %></td> 
+      <td><%= link_to 'Delete', cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      <% end %>   
+    </tr> 
+      <% end %>
+  </tbody>
+</div>
+</table> 

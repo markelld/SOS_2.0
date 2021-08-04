@@ -1,0 +1,49 @@
+<div class='container d-flex justify-content-center'> 
+<div class="card mt-4" style="width: 90%;">
+<div class="card-header" style="color:#FBFBFF; background-color:#0A0908">
+  <h2 class="card-body text-center">New Cocktail</h2>
+</div> 
+<div class="card-body">
+<%= form_with(model: cocktail) do |form| %>
+  <% if cocktail.errors.any? %>
+    <div id="error_explanation">
+      <h2 ><%= pluralize(cocktail.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
+
+      <ul>
+        <% cocktail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.text_field :name, class:"form-control mb-2",placeholder:"Name" %> 
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :variety, class:"form-control mb-2", placeholder:"Shaken or Stirred" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_area :ingredients, class:"form-control mb-2",rows:"4",placeholder:"Ingredients" %> 
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_area :build, class:"form-control mb-2",rows:"4",placeholder:"Build"%>
+  </div>  
+  
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :cocktail_user_id, value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="actions d-flex flex-row justify-content-center mb-4">
+    <%= form.submit "Add",class:"btn btn-outline-success m-2" %> 
+    <%= link_to 'Back', cocktails_path,class:"text-decoration-none btn btn-outline-dark m-2" %>
+  </div> 
+  <br/>
+<% end %>
+</div>
+</div>
+</div>
+

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<div class='d-flex justify-content-center mb-4'>
+<div class="card" style="width: 90%;">
+<div class="card-header" style="color:#FBFBFF; background-color:#0A0908">
+<h1 class="m-1 font-weight-bold">
+  <%= @cocktail.name %>
+</h1>
+</div> 
+<div class="card-body">
+
+<p>
+  <h4>Type</h4>
+  <%= @cocktail.variety %>
+</p>
+
+<p>
+  <h4>Ingredients</h4>
+  <%= @cocktail.ingredients %>
+</p>
+
+<p>
+  <h4>Build</h4>
+  <%= @cocktail.build %>
+</p>  
+<div> 
+<%= link_to 'Edit', edit_cocktail_path(@cocktail),class:"text-decoration-none btn btn-success m-1" %> |
+<%= link_to 'Back', cocktails_path,class:"text-decoration-none btn btn-dark m-1"%> 
+</div>
+</div> 
+</div> 
+</div>
+
