@@ -1,6 +1,7 @@
 Rails.application.routes.draw do 
   devise_for :users
-  resources :cocktails 
+  resources :cocktails  
+  get 'home/profile'
   get 'home/about'  
   get 'home/contact' 
   root "home#index" 

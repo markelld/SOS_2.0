@@ -1,3 +1,9 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // // You can use Sass (SCSS) here: https://sass-lang.com/
+#home-div{
+  background-image:image-url('homepage.jpg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: cover; 
+}
