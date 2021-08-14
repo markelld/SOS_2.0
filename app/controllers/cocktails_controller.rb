@@ -3,7 +3,7 @@ class CocktailsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show] 
   before_action :correct_user, only: [:edit, :update, :destroy] 
 
-
+ 
   # GET /cocktails or /cocktails.json
   def index 
     @q = Cocktail.ransack(params[:q])
