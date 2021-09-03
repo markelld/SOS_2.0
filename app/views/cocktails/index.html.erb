@@ -24,7 +24,7 @@
       <% @cocktails.limit(10).each do |cocktail| %>
     <tr> 
       <td><%= cocktail.name %></td> 
-      <td><%= link_to 'Show', cocktail, class:"btn btn-primary" %></td>  
+      <td><%= link_to 'View', cocktail, class:"btn btn-primary" %></td>  
       <% if cocktail.user == current_user %>
       <td><%= link_to 'Edit', edit_cocktail_path(cocktail), class:"btn btn-success"  %></td> 
       <td><%= link_to 'Delete', cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
